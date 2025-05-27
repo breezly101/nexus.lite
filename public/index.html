@@ -9,14 +9,36 @@
   <title>Home</title>
   <meta name="description" content="A minimalistic web proxy." />
   <link rel="shortcut icon" href="favicon.ico" />
-  <link rel="stylesheet" href="style.css" />
   <link
     href="https://fonts.googleapis.com/css?family=Product+Sans"
     rel="stylesheet"
   />
-  
   <style>
-    /* Removed custom cursor styles */
+    /* Logo container styles */
+    .logo-wrapper {
+      display: flex;
+      align-items: center;   /* vertically centre logo and text */
+      justify-content: center;
+      gap: 15px;             /* spacing between logo and heading */
+      padding: 10px 0;
+    }
+
+    /* Logo image styles */
+    .logo {
+      height: 80px;          /* fixed height */
+      width: auto;           /* maintain aspect ratio */
+      object-fit: contain;   /* no stretching */
+      display: block;        /* removes inline spacing issues */
+    }
+
+    /* Heading styles */
+    .logo-wrapper h1 {
+      font-family: 'Product Sans', sans-serif;
+      font-weight: normal;
+      font-size: 2rem;
+      margin: 0;
+      user-select: none;
+    }
   </style>
 
   <script src="baremux/index.js" defer></script>
@@ -33,6 +55,7 @@
     <img class="logo" src="assets/nexus.png" alt="Nexus Logo" />
     <h1>Nexus</h1>
   </div>
+
   <form autocomplete="off" id="uv-form" class="flex-center blurOut">
     <input
       autocomplete="false"
@@ -47,13 +70,14 @@
       placeholder="Search without restrictions"
     />
   </form>
+
   <p></p>
   <div class="center-margin">
     <p id="uv-error"></p>
     <pre id="uv-error-code"></pre>
   </div>
   <div class="bottomText unselectable" style="left: 10px">
-    nexus v0.2.0
+    nexus v0.2.0-beta
   </div>
   <div class="bottomText unselectable" style="right: 10px">
     <a
@@ -64,7 +88,5 @@
     >
   </div>
   <iframe style="display: none" id="uv-frame"></iframe>
-
-  <!-- Removed cursor JS -->
 </body>
 </html>
