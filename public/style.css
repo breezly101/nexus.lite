@@ -4,8 +4,8 @@
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-image: url("bgDark.png");
-    box-shadow: inset 0 0 0 1000px #1b1d25db;
+    /* background-image removed */
+    /* box-shadow removed */
   }
 
   .logo-wrapper h1,
@@ -38,8 +38,8 @@
 
 @media (prefers-color-scheme: light) {
   body {
-    background-image: url("bgLight.png");
-    box-shadow: inset 0 0 0 1000px #f7f9fcdb;
+    /* background-image removed */
+    /* box-shadow removed */
   }
 
   .logo-wrapper h1,
