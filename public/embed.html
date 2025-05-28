@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+    iframe#uv-frame {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <iframe id="uv-frame" src=""></iframe>
+
+  <!-- UV Proxy Scripts (defer so DOM is ready) -->
+  <script src="baremux/index.js" defer></script>
+  <script src="epoxy/index.js" defer></script>
+  <script src="uv/uv.bundle.js" defer></script>
+  <script src="uv/uv.config.js" defer></script>
+  <script src="register-sw.js" defer></script>
+  <script src="search.js" defer></script>
+  <script src="index.js" defer></script>
+
+  <!-- Your embed URL loader script -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof __uv$config === 'undefined' || typeof __uv$config.encodeUrl !== 'function') {
+        console.error('UV config or encodeUrl function not found.');
+        return;
+      }
+
+      // Get raw URL from hash, fallback to itch.io embed if empty
+      const rawUrl = decodeURIComponent(window.location.hash.slice(1)) || 'https://itch.io/embed-upload/7803470?color=333333';
+
+      // Encode URL using UV proxy
+      const encodedUrl = __uv$config.encodeUrl(rawUrl);
+
+      // Construct full proxied URL
+      const proxiedUrl = __uv$config.prefix + encodedUrl;
+
+      // Set iframe src
+      const iframe = document.getElementById('uv-frame');
+      iframe.src = proxiedUrl;
+    });
+  </script>
+</body>
+
+</html>
