@@ -14,7 +14,7 @@ const games = [
   { name: 'Learn To Fly 2', folder: 'games/learntofly2', icon: 'assets/images/fly2.png' },
   { name: 'Drift Hunters', folder: 'games/drifthunters', icon: 'assets/images/drifthunters.png' },
   { name: 'Super Mario 63 (Flash)', folder: 'games/supermario63', icon: 'assets/images/flash63.png' },
-  { name: 'Super Mario 63 (Redux)', folder: 'games/sm63redux', icon: 'assets/images/supermario63.png' },
+  { name: 'Super Mario 63 (Redux)', folder: 'embed.html#https://itch.io/embed-upload/7803470?color=333333', icon: 'assets/images/supermario63.png' },
   { name: 'Super Mario Construct', folder: 'games/construct', icon: 'assets/images/construct.png' },
   { name: 'Cluster Rush', folder: 'games/cluster-rush', icon: 'assets/images/cluster-rush.png' },
   // add more games...
