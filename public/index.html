@@ -2,37 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
   <title>Home</title>
   <meta name="description" content="A minimalistic web proxy." />
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="stylesheet" href="style.css" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Product+Sans"
-    rel="stylesheet"
-  />
-  
+  <link href="https://fonts.googleapis.com/css?family=Product+Sans" rel="stylesheet" />
   <style>
-    /* Removed custom cursor styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100%;
+      overflow: hidden;
+      color: white;
+    }
   </style>
-
-  <script src="baremux/index.js" defer></script>
-  <script src="epoxy/index.js" defer></script>
-  <script src="uv/uv.bundle.js" defer></script>
-  <script src="uv/uv.config.js" defer></script>
-  <script src="register-sw.js" defer></script>
-  <script src="search.js" defer></script>
-  <script src="index.js" defer></script>
 </head>
 
 <body>
+  <div id="particles-js"></div>
+
   <div class="flex-center logo-wrapper header-center dropIn unselectable">
     <img class="logo" src="assets/nexus.png" alt="Nexus Logo" />
     <h1>Nexus</h1>
   </div>
+
   <form autocomplete="off" id="uv-form" class="flex-center blurOut">
     <input
       autocomplete="false"
@@ -47,24 +42,72 @@
       placeholder="Search without restrictions"
     />
   </form>
-  <p></p>
+
   <div class="center-margin">
     <p id="uv-error"></p>
     <pre id="uv-error-code"></pre>
   </div>
+
   <div class="bottomText unselectable" style="left: 10px">
     nexus v0.2.0
   </div>
   <div class="bottomText unselectable" style="right: 10px">
-    <a
-      href="https://github.com/breezly101/phosphur"
-      rel="noopener"
-      target="_blank"
-      >Github</a
-    >
+    <a href="https://github.com/breezly101/phosphur" rel="noopener" target="_blank">Github</a>
   </div>
+
   <iframe style="display: none" id="uv-frame"></iframe>
 
-  <!-- Removed cursor JS -->
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="baremux/index.js" defer></script>
+  <script src="epoxy/index.js" defer></script>
+  <script src="uv/uv.bundle.js" defer></script>
+  <script src="uv/uv.config.js" defer></script>
+  <script src="register-sw.js" defer></script>
+  <script src="search.js" defer></script>
+  <script src="index.js" defer></script>
+
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 400,
+          density: { enable: true, value_area: 800 }
+        },
+        color: { value: "#888888" },
+        shape: {
+          type: "circle",
+          stroke: { width: 0, color: "#000000" }
+        },
+        opacity: {
+          value: 0.6,
+          random: true
+        },
+        size: {
+          value: 3,
+          random: true
+        },
+        line_linked: { enable: false },
+        move: {
+          enable: true,
+          speed: 3,
+          direction: "bottom",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: false },
+          onclick: { enable: false },
+          resize: true
+        }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>
