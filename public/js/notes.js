@@ -17,8 +17,20 @@ const games = [
   { name: 'Super Mario 63 (Redux)', folder: 'embed.html#https://itch.io/embed-upload/7803470?color=333333', icon: 'assets/images/supermario63.png' },
   { name: 'Super Mario Construct', folder: '/uv/service/hvtrs8%2F-lgvglqhcrgssucrg.aoo%2Fjtol7%2Fqurepmcrkoaolsvrwcv%2F', icon: 'assets/images/construct.png' },
   { name: 'Cluster Rush', folder: 'games/cluster-rush', icon: 'assets/images/cluster-rush.png' },
-  // add more games...
 ];
 
-// Sort games alphabetically by name
+// Sort games alphabetically
 games.sort((a, b) => a.name.localeCompare(b.name));
+
+// Example render function (if needed)
+const container = document.getElementById("game-container");
+games.forEach(game => {
+  const div = document.createElement("div");
+  div.className = "game";
+  div.innerHTML = `<img src="${game.icon}" alt="${game.name}"><br>${game.name}`;
+  div.onclick = () => {
+    // ✅ REDIRECT without adding index.html
+    window.location.href = game.folder;
+  };
+  container.appendChild(div);
+});
